@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
+
+# シンプルなビュー関数
+def hello_view(request):
+    return HttpResponse("HELLO")
 
 urlpatterns = [
+    path('', hello_view, name='home'),  # ルートURLで「HELLO」を表示
     path('admin/', admin.site.urls),
 ]
